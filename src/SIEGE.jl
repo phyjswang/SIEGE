@@ -10,7 +10,7 @@ function main( path = pwd() )
 	# Set paths
 	parent_directory = path
 	@info("Working in:",parent_directory)
-	project_directory = joinpath(parent_directory, "env")
+	project_directory = joinpath(parent_directory, "project_folder_name")
 	build_directory = joinpath(parent_directory, "build")
 
 	my_depot = joinpath(build_directory, "depot")
@@ -28,7 +28,7 @@ function main( path = pwd() )
 
 	run(setenv(`$(Base.julia_cmd()) -e "import Pkg; Pkg.instantiate(); Pkg.precompile()"`, new_environment))
 
-	# Create sysimage 
+	# Create sysimage
 	create_sysimage(String[];
 		sysimage_path = my_sysimage,
 		project = project_directory,
