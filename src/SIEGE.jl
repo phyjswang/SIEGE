@@ -5,12 +5,12 @@ export main
 using Pkg
 using PackageCompiler
 
-function main( path = pwd() )
+function main(project_folder_name, path = pwd() )
 
 	# Set paths
 	parent_directory = path
 	@info("Working in:",parent_directory)
-	project_directory = joinpath(parent_directory, "project_folder_name")
+	project_directory = joinpath(parent_directory, project_folder_name)
 	build_directory = joinpath(parent_directory, "build")
 
 	my_depot = joinpath(build_directory, "depot")
